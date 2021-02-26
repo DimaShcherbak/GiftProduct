@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Dimas::top_level" module="Dimas_GiftProduct" resource="Magento_Backend::content" title="Dimas"/>
+		<add action="dimas_giftproduct/giftproduct/index" id="Dimas_GiftProduct::dimas_giftproduct_giftproduct" module="Dimas_GiftProduct" parent="Dimas::top_level" resource="Magento_Backend::content" sortOrder="9999" title="GiftProduct"/>
+	</menu>
+</config>

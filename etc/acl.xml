@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Dimas_GiftProduct::GiftProduct" sortOrder="10" title="GiftProduct">
+					<resource id="Dimas_GiftProduct::GiftProduct_save" sortOrder="10" title="Save GiftProduct"/>
+					<resource id="Dimas_GiftProduct::GiftProduct_delete" sortOrder="20" title="Delete GiftProduct"/>
+					<resource id="Dimas_GiftProduct::GiftProduct_update" sortOrder="30" title="Update GiftProduct"/>
+					<resource id="Dimas_GiftProduct::GiftProduct_view" sortOrder="40" title="View GiftProduct"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

@@ -1,0 +1,22 @@
+{
+    "name": "dimas/module-giftproduct",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Dimas",
+            "email": "ddimitriuss@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Dimas\\GiftProduct\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+<?php
+//use Magento\Framework\View\Element\Template;
+use Dimas\GiftProduct\Block\GiftProductBlock;
+/** @var GiftProductBlock $block */
+?>
+<?php $currentProduct = $block->getCurrentProduct()?>
+<?php $qty = $block->doCompare($block->currentSku(), $block->getItem())?>
+<?php $giftSku = $block->getGiftProductSku()?>
+<?php $name = $block->getName($block->getGiftProductSku())?>
+<?php $currentSku = $block->currentSku()?>
+<?php $status = $block->getStatus($currentSku)?>
+<div>
+    <?php if ($status === "Yes"):?>
+    <?php if ($qty):?>
+        <div>If you buy <?php echo $currentProduct->getName() ?>    <?php echo $qty['qty']; ?> you will receive bonus products  <?php echo $name; ?> </div>
+    <?php endif;?>
+    <?php endif;?>
+</div>

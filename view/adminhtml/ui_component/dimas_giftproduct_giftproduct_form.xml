@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">dimas_giftproduct_giftproduct_form.giftproduct_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button class="Dimas\GiftProduct\Block\Adminhtml\GiftProduct\Edit\BackButton" name="back"/>
+			<button class="Dimas\GiftProduct\Block\Adminhtml\GiftProduct\Edit\DeleteButton" name="delete"/>
+			<button class="Dimas\GiftProduct\Block\Adminhtml\GiftProduct\Edit\SaveButton" name="save"/>
+			<button class="Dimas\GiftProduct\Block\Adminhtml\GiftProduct\Edit\SaveAndContinueButton" name="save_and_continue"/>
+		</buttons>
+		<namespace>dimas_giftproduct_giftproduct_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>dimas_giftproduct_giftproduct_form.giftproduct_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="giftproduct_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider class="Dimas\GiftProduct\Model\GiftProduct\DataProvider" name="giftproduct_form_data_source">
+			<settings>
+				<requestFieldName>giftproduct_id</requestFieldName>
+				<primaryFieldName>giftproduct_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>Gift Details</label>
+		</settings>
+		<field formElement="textarea" name="Title" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">GiftProduct</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Title</label>
+				<dataScope>Title</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="MainProduct" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Dimas\GiftProduct\Ui\Component\Listing\Column\MultiMainProduct</item>
+                <item name="config" xsi:type="array">
+                    <item name="additionalClasses" xsi:type="string">required</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">MainProduct</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+<!--                    <item name="dataScope" xsi:type="string">custom_options_list</item>-->
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="listens" xsi:type="array">
+                        <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
+                    </item>
+                </item>
+            </argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">MainProduct</label>
+				<dataScope>MainProduct</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="GiftProduct" sortOrder="60">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Dimas\GiftProduct\Ui\Component\Listing\Column\MultiMainProduct</item>
+                <item name="config" xsi:type="array">
+                    <item name="additionalClasses" xsi:type="string">required</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">GiftProduct</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <!--                    <item name="dataScope" xsi:type="string">custom_options_list</item>-->
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="listens" xsi:type="array">
+                        <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">GiftProduct</label>
+                <dataScope>GiftProduct</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+		</field>
+		<field formElement="textarea" name="Label" sortOrder="70">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">GiftProduct</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Label</label>
+				<dataScope>Label</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="Qty" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">GiftProduct</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Qty</label>
+				<dataScope>Qty</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+        <field formElement="checkbox" name="Status" sortOrder="100">
+            <settings>
+                <label translate="true">Enabled</label>
+                </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <prefer>toggle</prefer>
+                        <valueMap>
+                            <map name="false" xsi:type="string">No</map>
+                            <map name="true" xsi:type="string">Yes</map>
+                        </valueMap>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+	</fieldset>
+</form>

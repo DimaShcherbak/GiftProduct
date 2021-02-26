@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Catalog\Model\Product" type="Dimas\GiftProduct\Model\Product"/>
+    <preference for="Dimas\GiftProduct\Api\GiftProductRepositoryInterface" type="Dimas\GiftProduct\Model\GiftProductRepository"/>
+	<preference for="Dimas\GiftProduct\Api\Data\GiftProductInterface" type="Dimas\GiftProduct\Model\Data\GiftProduct"/>
+	<preference for="Dimas\GiftProduct\Api\Data\GiftProductSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Dimas\GiftProduct\Model\ResourceModel\GiftProduct\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">dimas_giftproduct_giftproduct</argument>
+			<argument name="resourceModel" xsi:type="string">Dimas\GiftProduct\Model\ResourceModel\GiftProduct\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="dimas_giftproduct_giftproduct_listing_data_source" xsi:type="string">Dimas\GiftProduct\Model\ResourceModel\GiftProduct\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

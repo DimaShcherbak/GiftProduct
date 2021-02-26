@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!--    <event name="sales_quote_address_collect_totals_before">-->
+<!--    <event name="checkout_cart_add_product_complete">-->
+<!--    <event name="sales_quote_add_item">-->
+<!--    <sales_quote_remove_item">-->
+    <event name="checkout_cart_product_add_after">
+    <observer name="gift_product" instance="Dimas\GiftProduct\Observer\AddGiftProduct" />
+    </event>
+
+    <event name="sales_quote_remove_item">
+        <observer name="gift_product" instance="Dimas\GiftProduct\Observer\DelGiftProduct" />
+    </event>
+
+    <event name="checkout_cart_update_items_after">
+        <observer name="gift_product_update" instance="Dimas\GiftProduct\Observer\UpdateGiftProduct" />
+    </event>
+</config>
